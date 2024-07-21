@@ -1,4 +1,5 @@
 
+
 'use client';
 import { useState, useEffect } from 'react';
 import AddStudentForm from './AddStudentForm';
@@ -40,48 +41,44 @@ export default function PeerMatchForm() {
 
   const handleStudentDetailsSubmit = async (e) => {
     e.preventDefault();
-
-    // try {
-    //   const response = await fetch('/api/find-peer-match', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({ studentDetails }),
-    //   });
-
-    //   const data = await response.json();
-    //   if (response.ok) {
-    //     setPeerMatch(data);
-    //   } else {
-    //     setError(data.error);
-    //   }
-    // } catch (err) {
-    //   setError('Failed to find peer match');
-    // }
-
     try {
-        const response = await fetch('/api/find-peer-match', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ studentDetails }),
-        });
-  
-        const data = await response.json();
-        if (response.ok) {
-          setPeerMatch(data);
-        } else {
-          setError(data.error);
-        }
-      } catch (err) {
-        setError('Failed to find peer match');
+      const response = await fetch('/api/find-peer-match', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ studentDetails }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setPeerMatch(data);
+      } else {
+        setError(data.error);
       }
+    } catch (err) {
+      setError('Failed to find peer match');
+    }
   };
 
   const handleAddStudent = (newStudent) => {
     setStudents((prevStudents) => [...prevStudents, newStudent]);
+  };
+
+ 
+
+
+  // Function to parse and clean the peer match message
+  const parseMessage = (message) => {
+    // Remove markdown-style bold indicators (**)
+    const cleanedMessage = message.replace(/\*\*/g, '');
+    const lines = cleanedMessage.split('\n').filter(line => line.trim() !== '');
+    return lines.map((line, index) => {
+      if (line.startsWith('* ')) {
+        return <li key={index}>{line.slice(2)}</li>;
+      }
+      return <p key={index}>{line}</p>;
+    });
   };
 
   return (
@@ -151,7 +148,9 @@ export default function PeerMatchForm() {
       {peerMatch && (
         <div>
           <h3>Best Peer Match</h3>
-          <pre>{JSON.stringify(peerMatch, null, 2)}</pre>
+          <div>
+            {parseMessage(peerMatch.message)}
+          </div>
         </div>
       )}
 
@@ -159,3 +158,4 @@ export default function PeerMatchForm() {
     </div>
   );
 }
+

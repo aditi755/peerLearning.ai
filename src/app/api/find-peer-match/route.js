@@ -1,29 +1,22 @@
 
-// import dbConnect from '@/app/utils/dbConnect';
-// import Student from '@/app/models/Student';
-// import findBestPeerMatch from '@/app/utils/findBestPeerMatch';
+
 
 import { NextResponse } from 'next/server';
 import dbConnect from '../../utils/dbConnect';  // Adjusted path
 import Student from '../../models/Student';
 import findBestPeerMatch from '../../utils/findBestPeerMatch';
 
-// export async function POST(req) {
-//     await dbConnect();
-    
-//     try {
-//       const { studentDetails } = await req.json();
-//       const students = await Student.find();
-      
-//       const peerMatch = await findBestPeerMatch(studentDetails, students);
-      
-//       return new Response(JSON.stringify(peerMatch), { status: 200 });
-//     } catch (error) {
-//       return new Response(JSON.stringify({ error: error.message }), { status: 500 });
-//     }
-//   }
+// Function to format response
+function formatResponse(responseText) {
 
+  let cleanedText = responseText.replace(/<br\s*\/?>/gi, '\n');
+  cleanedText = cleanedText.replace(/<\/?[^>]+(>|$)/g, ""); // Remove all HTML tags
 
+  // Replace multiple newlines with a single newline
+  cleanedText = cleanedText.replace(/\n\s*\n/g, '\n\n');
+
+  return cleanedText.trim();
+}
 export async function POST(req) {
   await dbConnect();
   console.log("db connected route peer")
@@ -43,7 +36,13 @@ export async function POST(req) {
    console.log(students)
     const peerMatch = await findBestPeerMatch(studentDetails, students);
     console.log(peerMatch)
-    return new Response(JSON.stringify(peerMatch), { status: 200 });
+    
+    // return new Response(JSON.stringify(peerMatch), { status: 200 });
+      // Format the response
+      const formattedPeerMatch = formatResponse(peerMatch);
+
+      return new Response(JSON.stringify({ message: formattedPeerMatch }), { status: 200 });
+    
   } catch (error) {
     return new Response(JSON.stringify({ error: error.message }), { status: 500 });
   }
