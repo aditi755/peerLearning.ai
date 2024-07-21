@@ -81,13 +81,15 @@ export default function PeerMatchForm() {
     });
   };
 
-  return (
-    <div>
-      <h1>Peer Tutoring Platform</h1>
+//  
+
+return (
+    <div className="max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
+      <h1 className="text-3xl font-bold mb-6 text-center">Peer Tutoring Platform</h1>
       <AddStudentForm onAddStudent={handleAddStudent} />
 
-      <h2>Find Peer Match</h2>
-      <form onSubmit={handleStudentDetailsSubmit}>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">Find Peer Match</h2>
+      <form onSubmit={handleStudentDetailsSubmit} className="grid grid-cols-1 gap-4">
         <input
           type="text"
           name="name"
@@ -95,6 +97,7 @@ export default function PeerMatchForm() {
           value={studentDetails.name}
           onChange={handleStudentDetailsChange}
           required
+          className="p-2 border border-gray-300 rounded"
         />
         <input
           type="number"
@@ -103,6 +106,7 @@ export default function PeerMatchForm() {
           value={studentDetails.age}
           onChange={handleStudentDetailsChange}
           required
+          className="p-2 border border-gray-300 rounded"
         />
         <input
           type="text"
@@ -111,6 +115,7 @@ export default function PeerMatchForm() {
           value={studentDetails.subjects}
           onChange={handleStudentDetailsChange}
           required
+          className="p-2 border border-gray-300 rounded"
         />
         <input
           type="text"
@@ -119,6 +124,7 @@ export default function PeerMatchForm() {
           value={studentDetails.grade}
           onChange={handleStudentDetailsChange}
           required
+          className="p-2 border border-gray-300 rounded"
         />
         <textarea
           name="studyPreferences"
@@ -126,35 +132,41 @@ export default function PeerMatchForm() {
           value={studentDetails.studyPreferences}
           onChange={handleStudentDetailsChange}
           required
+          className="p-2 border border-gray-300 rounded"
         />
-        <button type="submit">Find Peer Match</button>
+        <button type="submit" className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+          Find Peer Match
+        </button>
       </form>
 
-      <h2>All Students</h2>
-      <ul>
+      <h2 className="text-2xl font-semibold mt-8 mb-4">All Students</h2>
+      <ul className="space-y-4">
         {students.map((student) => (
-          <li key={student._id}>
-            <strong>Name:</strong> {student.name}<br />
-            <strong>Age:</strong> {student.age}<br />
-            <strong>Subjects to study:</strong> {(student.subjects || []).join(', ')}<br />
-            <strong>Strengths:</strong> {(student.strengths || []).join(', ')}<br />
-            <strong>Weaknesses:</strong> {(student.weaknesses || []).join(', ')}<br />
-            <strong>Grade:</strong> {student.grade}<br />
-            <strong>Study Preferences:</strong> {student.studyPreferences}<br />
+          <li key={student._id} className="p-4 bg-white border border-gray-300 rounded shadow-md">
+            <div><strong>Name:</strong> {student.name}</div>
+            <div><strong>Age:</strong> {student.age}</div>
+            <div><strong>Subjects to study:</strong> {(student.subjects || []).join(', ')}</div>
+            <div><strong>Strengths:</strong> {(student.strengths || []).join(', ')}</div>
+            <div><strong>Weaknesses:</strong> {(student.weaknesses || []).join(', ')}</div>
+            <div><strong>Grade:</strong> {student.grade}</div>
+            <div><strong>Study Preferences:</strong> {student.studyPreferences}</div>
+            <button className="mt-2 p-2 bg-green-500 text-white rounded hover:bg-green-600">
+              Message {student.name}
+            </button>
           </li>
         ))}
       </ul>
 
       {peerMatch && (
-        <div>
-          <h3>Best Peer Match</h3>
+        <div className="mt-8 p-4 bg-white border border-gray-300 rounded shadow-md">
+          <h3 className="text-xl font-semibold mb-2">Best Peer Match</h3>
           <div>
             {parseMessage(peerMatch.message)}
           </div>
         </div>
       )}
 
-      {error && <div style={{ color: 'red' }}>{error}</div>}
+      {error && <div className="mt-4 text-red-500">{error}</div>}
     </div>
   );
 }
