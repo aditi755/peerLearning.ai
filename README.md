@@ -60,6 +60,8 @@ PeerConnect.ai is an AI-powered platform designed to help students find ideal le
 
 ![Screenshot (98)](https://github.com/user-attachments/assets/a7bb058e-f228-4344-90c4-30db26b7d8c2)
 
+![Screenshot (99)](https://github.com/user-attachments/assets/bb6a56f9-bd24-4478-b6f3-3643f9425fe6)
+
 ## Installation
 
 1. Clone the repository:
