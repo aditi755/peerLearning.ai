@@ -41,24 +41,43 @@ export default function PeerMatchForm() {
   const handleStudentDetailsSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch('/api/find-peer-match', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ studentDetails }),
-      });
+    // try {
+    //   const response = await fetch('/api/find-peer-match', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({ studentDetails }),
+    //   });
 
-      const data = await response.json();
-      if (response.ok) {
-        setPeerMatch(data);
-      } else {
-        setError(data.error);
+    //   const data = await response.json();
+    //   if (response.ok) {
+    //     setPeerMatch(data);
+    //   } else {
+    //     setError(data.error);
+    //   }
+    // } catch (err) {
+    //   setError('Failed to find peer match');
+    // }
+
+    try {
+        const response = await fetch('/api/find-peer-match', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ studentDetails }),
+        });
+  
+        const data = await response.json();
+        if (response.ok) {
+          setPeerMatch(data);
+        } else {
+          setError(data.error);
+        }
+      } catch (err) {
+        setError('Failed to find peer match');
       }
-    } catch (err) {
-      setError('Failed to find peer match');
-    }
   };
 
   const handleAddStudent = (newStudent) => {

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import dbConnect from '@/app/utils/dbConnect'; 
-import Student from '@/app/models/Student';     
+import dbConnect from '../../utils/dbConnect';  // Adjusted path
+import Student from '../../models/Student'; 
 
 export async function POST(req) {
     await dbConnect();
