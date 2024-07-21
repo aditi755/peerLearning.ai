@@ -52,6 +52,14 @@ PeerConnect.ai is an AI-powered platform designed to help students find ideal le
   - Shows a list of all registered students with their details.
   - Provides options to view detailed information about each student.
 
+## Demo
+
+![Screenshot (95)](https://github.com/user-attachments/assets/7fc15370-9fb9-4fc0-8b79-938ea43b4a85)
+
+![Screenshot (96)](https://github.com/user-attachments/assets/8a848c99-a76e-46be-944e-613302ef37c3)
+
+![Screenshot (98)](https://github.com/user-attachments/assets/a7bb058e-f228-4344-90c4-30db26b7d8c2)
+
 ## Installation
 
 1. Clone the repository:
