@@ -3,6 +3,7 @@
 PeerConnect.ai is an AI-powered platform designed to help students find ideal learning partners. Developed for a hackathon, the platform allows students to either add themselves to a list or find their best peer match using an AI model. The Google Gemini API provides detailed explanations for why a particular peer is a good match based on the student's profile.
 
 Video Demo [here](https://www.loom.com/share/72128cc400514be7a1a3ea62c7501006?sid=fe18381e-110c-4057-9a50-c96c8ecfc9a0)
+Live link: https://peer-learning-ai.vercel.app/
 ## Track: EduTech 
 
 ### Problem Statement
@@ -44,6 +45,8 @@ In educational settings, students often struggle to find suitable peers for coll
 - Enhances community engagement and allows students to interact on a social level.
 
 ### 3. Analytics 
+- analytics to the UI using Chart.js and Ant Design UI
+- And, using clodflare AI workers for more efficient AI model to match students.
 
 ## UI/UX Design
 
