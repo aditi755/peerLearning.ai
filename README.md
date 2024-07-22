@@ -2,6 +2,16 @@
 
 PeerConnect.ai is an AI-powered platform designed to help students find ideal learning partners. Developed for a hackathon, the platform allows students to either add themselves to a list or find their best peer match using an AI model. The Google Gemini API provides detailed explanations for why a particular peer is a good match based on the student's profile.
 
+Video Demo [here](https://www.loom.com/share/72128cc400514be7a1a3ea62c7501006?sid=fe18381e-110c-4057-9a50-c96c8ecfc9a0)
+## Track: EduTech 
+
+### Problem Statement
+In educational settings, students often struggle to find suitable peers for collaborative learning and peer tutoring. Traditional methods of pairing students based on basic criteria like availability and subjects of interest often fall short in identifying the best matches that can truly enhance learning experiences. There is a need for a more sophisticated, AI-powered solution that can match students based on a deeper understanding of their strengths, weaknesses, learning styles, and feedback.
+
+#### Problem It Solves
+- **Isolation**: Addresses the issue of isolation among students by connecting them with potential learning partners.
+- **Finding Learning Partners**: Simplifies the process of finding suitable study partners through detailed AI analysis.
+
 ## Features
 
 ### 1. Student Registration
@@ -33,10 +43,7 @@ PeerConnect.ai is an AI-powered platform designed to help students find ideal le
 - Addition of social features to view and connect with social profiles of other students.
 - Enhances community engagement and allows students to interact on a social level.
 
-## Problem Solved
-
-- **Isolation:** Addresses the issue of isolation among students by connecting them with potential learning partners.
-- **Finding Learning Partners:** Simplifies the process of finding suitable study partners through detailed AI analysis.
+### 3. Analytics 
 
 ## UI/UX Design
 
@@ -88,16 +95,10 @@ PeerConnect.ai is an AI-powered platform designed to help students find ideal le
 
 6. Open your browser and visit `http://localhost:3000`.
 
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request with improvements or bug fixes.
-
 
 ## Acknowledgments
 
 - Thanks to the Google Gemini API for providing powerful AI capabilities.
 - Special thanks to the hackathon organizers and mentors for their support.
 
----
 
-For any questions or issues, please contact [your-email@example.com](mailto:your-email@example.com).
